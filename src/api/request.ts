@@ -24,7 +24,7 @@ export enum RESPONSE_STATUS {
 
 export interface IRESPONSE {
   code: RESPONSE_STATUS,
-  data: object
+  data: any
 }
 
 function formatUrl(url: string) {

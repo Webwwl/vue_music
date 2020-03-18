@@ -1,4 +1,4 @@
-const designWidth = 750
+const designWidth = 375
 const scale = 100 / 2
 
 function resize() {

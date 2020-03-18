@@ -28,9 +28,10 @@ export default class Class extends Vue {}
     @include bg-image('logo');
   }
   .text {
-    font-size: 24px;
+    font-size: 18px;
     display: inline-block;
     vertical-align: middle;
+    font-weight: 700;
   }
 }
 </style>
