@@ -30,6 +30,10 @@ module.exports = {
       '/music': {
         target: 'http://ustbhuangyi.com',
         changeOrigin: true,
+      },
+      '/v8': {
+        target: 'https://c.y.qq.com',
+        changeOrigin: true,
       }
     }
   },

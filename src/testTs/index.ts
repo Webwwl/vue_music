@@ -1,11 +1,8 @@
-interface A {
-  say(str: string): void
+interface WWl {
+  age: number
 }
 
-interface B {
-  name: string
+const a: WWl = {
+  name: 'h',
+  age: 12
 }
-
-type u = A & B
-
-const ins: u = {} as u

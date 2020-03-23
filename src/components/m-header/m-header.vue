@@ -12,12 +12,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class Class extends Vue {}
 </script>
 <style lang='scss' scoped>
-@import '@/common/styles/mixin.scss';
-@import '@/common/styles/variable.scss';
+@import '@/common/styles/scss/mixin.scss';
+@import '@/common/styles/scss/variable.scss';
 .m-header {
   text-align: center;
   line-height: 44px;
   color: $color-theme;
+  font-size: 0;
   .icon {
     display: inline-block;
     vertical-align: middle;

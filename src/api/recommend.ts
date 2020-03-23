@@ -37,11 +37,31 @@ export function getRecommend(data:object = {}) {
   data = Object.assign({}, recommendParams, data)
   return requester.request<any, IRESPONSE>({
     method: 'GET',
-    url: '/getTopBanner',
+    url: '/music/api/getTopBanner',
     params: data
   })
 }
 
+const discParams = {
+  platform: 'yqq',
+  hostUin: 0,
+  sin: 0,
+  ein: 29,
+  sortId: 5,
+  needNewCode: 0,
+  categoryId: 10000000,
+  rnd: Math.random(),
+  format: 'json'
+}
+
+export function getDiscList(data:object = {}) {
+  data = Object.assign({}, discParams, data)
+  return requester.request<any, IRESPONSE>({
+    method: 'GET',
+    url: '/music/api/getDiscList',
+    params: data
+  })
+}
 
 
 

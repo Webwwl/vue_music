@@ -21,7 +21,7 @@ interface A {
 }
 
 @Component
-export default class Class extends Vue {
+export default class SlideClass extends Vue {
 
   @Prop({default: true}) readonly loop!: boolean
 
@@ -49,10 +49,19 @@ export default class Class extends Vue {
       this.initDots()
       this.initSlider()
     }, 20);
+
+    window.addEventListener('resize', () => {
+      this.initSliderWidth(true)
+      this.bsInstance.refresh()
+    })
   }
 
-  initSliderWidth() {
-    const containerWidth = this.sliderGroup.clientWidth
+  destroy() {
+    clearTimeout(this.timer)
+  }
+
+  initSliderWidth(isResize?: boolean) {
+    const containerWidth = this.slider.clientWidth
     this.children = this.sliderGroup.children
     let width = 0
     for(let child of this.children) {
@@ -60,7 +69,9 @@ export default class Class extends Vue {
       (child as HTMLElement).style.width = containerWidth + 'px'
       width += containerWidth
     }
-    width += containerWidth * 2;  // better-scroll实现loop播放需要
+    if (this.loop && !isResize) {
+      width += containerWidth * 2 // better-scroll实现loop播放需要
+    }  
     this.sliderGroup.style.width = width + 'px'
   }
 
@@ -69,9 +80,10 @@ export default class Class extends Vue {
       scrollX: true,
       scrollY: false,
       momentum: false,
+      click: true,
       snap: {
         loop: this.loop,
-      },
+      }, 
       bounce: false,
     })
 
@@ -102,7 +114,7 @@ export default class Class extends Vue {
 }
 </script>
 <style lang='scss' scoped>
-@import '@/common/styles/variable.scss';
+@import '@/common/styles/scss/variable.scss';
 .slider {
   overflow: hidden;
   position: relative;

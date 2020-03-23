@@ -24,7 +24,7 @@ export default class Class extends Vue {
 }
 </script>
 <style lang='scss' scoped>
-@import '@/common/styles/variable.scss';
+@import '@/common/styles/scss/variable.scss';
 .navs {
   display: flex;
   color: $color-text-l;

@@ -6,8 +6,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-  console.log("config", config)
-  config.url = formatUrl('/music/api/' + config.url)
+  config.url = formatUrl(config.url)
   config.params = Object.assign({}, commonParams, config.params)
   return config
 })
@@ -27,6 +26,10 @@ export interface IRESPONSE {
   data: any
 }
 
-function formatUrl(url: string) {
-  return url.replace('//', '/')
+function formatUrl(url: string | undefined): string {
+  if (url) {
+    return url.replace('//', '/')
+  } else {
+    return ''
+  }
 }
